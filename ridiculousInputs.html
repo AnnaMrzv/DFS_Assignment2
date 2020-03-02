@@ -1,0 +1,314 @@
+<div>
+  <p id="startOver" onclick="Null()">my finger is tired.</p>
+
+  <div class="all">
+
+    <h1>Count Your Date of Birth↓</h1>
+    <div>
+      <img id="finger" onclick="fingerClick()"
+        src="https://lh3.googleusercontent.com/h_FjNbwVnq6o5df-TAK12yYvHBN4Qq3YlpGOszart2DpbgrsEeN5nZeuvEfdKbwm4jh4tIg=s85"
+        alt="1">
+    </div>
+
+    <div>
+      <label>DD:</label>
+      <label>MM:</label>
+      <label>YYYY:</label>
+    </div>
+
+    <div class="input">
+
+      <div class="InputDay">
+
+        <span id="day" class="activeInput">0</span>
+        <div id="dayOk" onclick="confirmDay()">OK.</div>
+        <span></span>
+        <button class="no" onclick="clearDay()">NO!</button>
+      </div>
+
+      <div class="InputMonth">
+
+        <span id="month" class="inactiveInput">0</span>
+        <div onclick="confirmMonth()">OK!</div>
+        <button class="reset" onclick="clearMonth()">RESET</button>
+      </div>
+
+      <div class="InputYear">
+        <span id="year" class="inactiveInput">0</span>
+        <div class="okYear" onclick="confirmYear()">OK...</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+#startOver {
+  text-align: right;
+  margin-right: 10px;
+  font-family: Courier;
+  color: #0000cc;
+}
+.all {
+  text-align: center;
+  font-family: Courier;
+}
+
+h1 {
+  font-weight: bold;
+  background-color: #e0e0e0;
+  color: #00008b;
+  -webkit-box-shadow: 3px 0px 10px 0px #00008b;
+  border: 2px solid #00008b;
+  width: 500px;
+  height: 40px;
+  text-align: center;
+  display: inline-block;
+}
+
+#finger {
+  padding: 20px;
+  cursor: pointer;
+  width: 100px;
+}
+
+label {
+  margin: 100px;
+  font-family: Courier;
+  font-size: 2em;
+  color: #00008b;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 20%;
+  color: #00008b;
+}
+
+.InputDay {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px;
+  height: 50%;
+}
+
+button:hover {
+  background-color: red;
+}
+
+.no {
+  align-content: top;
+  width: 100px;
+  height: 60px;
+  background-color: #00ffc4;
+  font-family: Courier;
+  font-size: 1.5em;
+  -webkit-box-shadow: 3px 0px 5px 0px #00008b;
+  color: #00008b;
+  
+}
+.activeInput {
+  border: 1px solid red;
+  background-color: #fb9091;
+}
+
+.inactiveInput {
+  border: 1px solid grey;
+  background-color: #e0e0e0;
+}
+
+#day {
+  padding: 5px;
+  padding-bottom: 10px;
+  height: 10px;
+  -webkit-box-shadow: 3px 0px 5px 0px #00008b;
+}
+
+#month {
+  padding-bottom: 70px;
+  width: 200px;
+  text-align: start;
+  -webkit-box-shadow: 3px 0px 5px 0px #00008b;
+}
+
+.InputMonth {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin: 20px 50px;
+}
+
+.reset {
+  background-color: #e0e0e0;
+  height: 100%;
+  font-family: Courier;
+  -webkit-box-shadow: 3px 0px 5px 0px #00008b;
+  color: #00008b;
+}
+
+#year {
+  width: 100%;
+  height: 15%;
+  -webkit-box-shadow: 3px 0px 5px 0px #00008b;
+}
+
+.InputYear {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 50px;
+  height: 100%;
+  text-align: end;
+}
+
+.okYear {
+  margin-left: 10px;
+  color: #00008b;
+}
+
+</style>
+
+<script type="text/javascript">
+let activeElement = "day";
+let day = 0;
+let month = 0;
+let year = 0;
+
+function fingerClick() {
+  changeImage();
+  if (activeElement == "day") {
+    day++;
+    console.log("day is", day);
+    document.getElementById("day").innerHTML = day;
+  } else if (activeElement == "month") {
+    month++;
+    console.log("month is", month);
+    document.getElementById("month").innerHTML = month;
+  } else {
+    year++;
+    console.log("activeElement is", activeElement);
+    document.getElementById("year").innerHTML = year;
+  }
+}
+
+function clearDay() {
+  if (activeElement == "day") {
+    day = 0;
+    console.log("day is", day);
+    document.getElementById("day").innerHTML = day;
+    fingerReset();
+  }
+}
+
+function clearMonth() {
+  if (activeElement == "month") {
+    month = 0;
+    console.log("month is", month);
+    document.getElementById("month").innerHTML = month;
+    fingerReset();
+  }
+}
+
+function makeActive() {
+  document.getElementById(activeElement).classList.remove("inactiveInput");
+  document.getElementById(activeElement).classList.add("activeInput");
+}
+
+function makeInactive() {
+  document.getElementById(activeElement).classList.remove("activeInput");
+  document.getElementById(activeElement).classList.add("inactiveInput");
+}
+
+function confirmDay() {
+  if (activeElement == "day") {
+    makeInactive(activeElement);
+    activeElement = "month";
+    makeActive(activeElement);
+    fingerReset();
+  }
+}
+
+function confirmMonth() {
+  if (activeElement == "month") {
+    makeInactive(activeElement);
+    activeElement = "year";
+    makeActive(activeElement);
+    fingerReset();
+  }
+}
+
+function Null() {
+  day = 0;
+  document.getElementById("day").innerHTML = day;
+  month = 0;
+  document.getElementById("month").innerHTML = month;
+  year = 0;
+  document.getElementById("year").innerHTML = year;
+  makeInactive(activeElement);
+  activeElement = "day";
+  makeActive(activeElement);
+  fingerReset();
+  alert("Sorry to hear that...want to start over?");
+}
+
+function changeImage() {
+  if (
+    document.getElementById("finger").src ==
+    "https://lh3.googleusercontent.com/h_FjNbwVnq6o5df-TAK12yYvHBN4Qq3YlpGOszart2DpbgrsEeN5nZeuvEfdKbwm4jh4tIg=s85"
+  ) {
+    document.getElementById("finger").src =
+      "https://lh3.googleusercontent.com/uLN4VR3rYfFLvE-3Ycy6_wLxBZdxaFHKzI6fm6z27NdoiKfPCVcZBzNLOc2l-kBWwZEhSyg=s85";
+  } else if (
+    document.getElementById("finger").src ==
+    "https://lh3.googleusercontent.com/uLN4VR3rYfFLvE-3Ycy6_wLxBZdxaFHKzI6fm6z27NdoiKfPCVcZBzNLOc2l-kBWwZEhSyg=s85"
+  ) {
+    //then 3:
+    document.getElementById("finger").src =
+      "https://lh3.googleusercontent.com/7e_Q-nmah6DjTwj61FnItZt5jkUJzMOKp5OS8xomk5RmWCAQQyc_U-Vl6rJdpP4ZiuAoU94=s85";
+  } else if (
+    document.getElementById("finger").src ==
+    "https://lh3.googleusercontent.com/7e_Q-nmah6DjTwj61FnItZt5jkUJzMOKp5OS8xomk5RmWCAQQyc_U-Vl6rJdpP4ZiuAoU94=s85"
+  ) {
+    // then 4
+    document.getElementById("finger").src =
+      "https://lh3.googleusercontent.com/is7ye_5B1jjRh8RwUppsybsa_EowJp0JnMJtzi4UCG1lM-nSAvlczB9i589IhNiCnkOU8Q=s85";
+  } else if (
+    document.getElementById("finger").src ==
+    "https://lh3.googleusercontent.com/is7ye_5B1jjRh8RwUppsybsa_EowJp0JnMJtzi4UCG1lM-nSAvlczB9i589IhNiCnkOU8Q=s85"
+  ) {
+    // then 5
+    document.getElementById("finger").src =
+      "https://lh3.googleusercontent.com/MDwFmELmgTn0WWIAx7WuG9C5o-HZnS2TiCzP5wbJ8EvhyEoS08zzeaZSAq5qc21bWjyZ_Q=s85";
+  } else if (
+    document.getElementById("finger").src ==
+    "https://lh3.googleusercontent.com/MDwFmELmgTn0WWIAx7WuG9C5o-HZnS2TiCzP5wbJ8EvhyEoS08zzeaZSAq5qc21bWjyZ_Q=s85"
+  ) {
+    // then 1 again
+    document.getElementById("finger").src =
+      "https://lh3.googleusercontent.com/h_FjNbwVnq6o5df-TAK12yYvHBN4Qq3YlpGOszart2DpbgrsEeN5nZeuvEfdKbwm4jh4tIg=s85";
+  }
+}
+
+function fingerReset() {
+  document.getElementById("finger").src =
+    "https://lh3.googleusercontent.com/h_FjNbwVnq6o5df-TAK12yYvHBN4Qq3YlpGOszart2DpbgrsEeN5nZeuvEfdKbwm4jh4tIg=s85";
+}
+
+function confirmYear() {
+  alert("Your date of birth is: " + day + "/" + month + "/" + year);
+  fingerReset();
+   day = 0;
+  document.getElementById("day").innerHTML = day;
+  month = 0;
+  document.getElementById("month").innerHTML = month;
+  year = 0;
+  document.getElementById("year").innerHTML = year;
+  makeInactive(activeElement);
+  activeElement = "day";
+  makeActive(activeElement);
+  fingerReset();
+}
+
+</script>
