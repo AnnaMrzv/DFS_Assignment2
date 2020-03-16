@@ -6,7 +6,7 @@
     <h1>Count Your Date of Birth↓</h1>
     <div>
       <img id="finger" onclick="fingerClick()"
-        src="https://lh3.googleusercontent.com/h_FjNbwVnq6o5df-TAK12yYvHBN4Qq3YlpGOszart2DpbgrsEeN5nZeuvEfdKbwm4jh4tIg=s85"
+        src="https://github.com/AnnaMrzv/DFS_Assignment2/blob/master/1.png?raw=true"
         alt="1">
     </div>
 
@@ -171,11 +171,13 @@ button:hover {
 </style>
 
 <script type="text/javascript">
+//Activates day as the first 'input' field
 let activeElement = "day";
 let day = 0;
 let month = 0;
 let year = 0;
 
+//Adds up value to the active element & changes images
 function fingerClick() {
   changeImage();
   if (activeElement == "day") {
@@ -211,11 +213,12 @@ function clearMonth() {
   }
 }
 
+ //Changes the style of the text boxes
 function makeActive() {
   document.getElementById(activeElement).classList.remove("inactiveInput");
   document.getElementById(activeElement).classList.add("activeInput");
 }
-
+//Changes the style of the text boxes
 function makeInactive() {
   document.getElementById(activeElement).classList.remove("activeInput");
   document.getElementById(activeElement).classList.add("inactiveInput");
@@ -239,6 +242,7 @@ function confirmMonth() {
   }
 }
 
+//Returns all values to 0, and displays an alert
 function Null() {
   day = 0;
   document.getElementById("day").innerHTML = day;
@@ -253,49 +257,52 @@ function Null() {
   alert("Sorry to hear that...want to start over?");
 }
 
+  //Changes images on a click, using github links
 function changeImage() {
   if (
     document.getElementById("finger").src ==
-    "https://lh3.googleusercontent.com/h_FjNbwVnq6o5df-TAK12yYvHBN4Qq3YlpGOszart2DpbgrsEeN5nZeuvEfdKbwm4jh4tIg=s85"
+    "https://github.com/AnnaMrzv/DFS_Assignment2/blob/master/1.png?raw=true"
   ) {
     document.getElementById("finger").src =
-      "https://lh3.googleusercontent.com/uLN4VR3rYfFLvE-3Ycy6_wLxBZdxaFHKzI6fm6z27NdoiKfPCVcZBzNLOc2l-kBWwZEhSyg=s85";
+      "https://github.com/AnnaMrzv/DFS_Assignment2/blob/master/2.png?raw=true";
   } else if (
     document.getElementById("finger").src ==
-    "https://lh3.googleusercontent.com/uLN4VR3rYfFLvE-3Ycy6_wLxBZdxaFHKzI6fm6z27NdoiKfPCVcZBzNLOc2l-kBWwZEhSyg=s85"
+    "https://github.com/AnnaMrzv/DFS_Assignment2/blob/master/2.png?raw=true"
   ) {
-    //then 3:
+    //change to image 3:
     document.getElementById("finger").src =
-      "https://lh3.googleusercontent.com/7e_Q-nmah6DjTwj61FnItZt5jkUJzMOKp5OS8xomk5RmWCAQQyc_U-Vl6rJdpP4ZiuAoU94=s85";
+      "https://github.com/AnnaMrzv/DFS_Assignment2/blob/master/3.png?raw=true";
   } else if (
     document.getElementById("finger").src ==
-    "https://lh3.googleusercontent.com/7e_Q-nmah6DjTwj61FnItZt5jkUJzMOKp5OS8xomk5RmWCAQQyc_U-Vl6rJdpP4ZiuAoU94=s85"
+    "https://github.com/AnnaMrzv/DFS_Assignment2/blob/master/3.png?raw=true"
   ) {
-    // then 4
+    // change to image 4
     document.getElementById("finger").src =
-      "https://lh3.googleusercontent.com/is7ye_5B1jjRh8RwUppsybsa_EowJp0JnMJtzi4UCG1lM-nSAvlczB9i589IhNiCnkOU8Q=s85";
+      "https://github.com/AnnaMrzv/DFS_Assignment2/blob/master/4.png?raw=true";
   } else if (
     document.getElementById("finger").src ==
-    "https://lh3.googleusercontent.com/is7ye_5B1jjRh8RwUppsybsa_EowJp0JnMJtzi4UCG1lM-nSAvlczB9i589IhNiCnkOU8Q=s85"
+    "https://github.com/AnnaMrzv/DFS_Assignment2/blob/master/4.png?raw=true"
   ) {
-    // then 5
+    // change to image 5
     document.getElementById("finger").src =
-      "https://lh3.googleusercontent.com/MDwFmELmgTn0WWIAx7WuG9C5o-HZnS2TiCzP5wbJ8EvhyEoS08zzeaZSAq5qc21bWjyZ_Q=s85";
+      "https://github.com/AnnaMrzv/DFS_Assignment2/blob/master/5.png?raw=true";
   } else if (
     document.getElementById("finger").src ==
-    "https://lh3.googleusercontent.com/MDwFmELmgTn0WWIAx7WuG9C5o-HZnS2TiCzP5wbJ8EvhyEoS08zzeaZSAq5qc21bWjyZ_Q=s85"
+    "https://github.com/AnnaMrzv/DFS_Assignment2/blob/master/5.png?raw=true"
   ) {
-    // then 1 again
+    // change to image 1 again
     document.getElementById("finger").src =
-      "https://lh3.googleusercontent.com/h_FjNbwVnq6o5df-TAK12yYvHBN4Qq3YlpGOszart2DpbgrsEeN5nZeuvEfdKbwm4jh4tIg=s85";
+      "https://github.com/AnnaMrzv/DFS_Assignment2/blob/master/1.png?raw=true";
   }
 }
 
+//Returns the image back to 1 
 function fingerReset() {
   document.getElementById("finger").src =
-    "https://lh3.googleusercontent.com/h_FjNbwVnq6o5df-TAK12yYvHBN4Qq3YlpGOszart2DpbgrsEeN5nZeuvEfdKbwm4jh4tIg=s85";
+    "https://github.com/AnnaMrzv/DFS_Assignment2/blob/master/1.png?raw=true";
 }
 
+  //Finishes your dof input
 function confirmYear() {
   alert("Your date of birth is: " + day + "/" + month + "/" + year);
   fingerReset();
